@@ -130,7 +130,7 @@ class XCGLoggerTests: XCTestCase {
 
     func testExecExecutesExactlyOnceWithNilReturnAndMultipleDestinations() {
         let log: XCGLogger = XCGLogger()
-        log.setup(.debug, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: "/tmp/test.log")
+        log.setup(.debug, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: "/tmp/test.log" as AnyObject?)
         log.identifier = "com.cerebralgardens.xcglogger.testExecExecutesExactlyOnceWithNilReturnAndMultipleDestinations"
 
         var numberOfTimes: Int = 0
@@ -192,7 +192,7 @@ class XCGLoggerTests: XCTestCase {
         systemLogDestination.showThreadName = true
         // Note: The thread name included in the log message should be "main" even though the log is processed in a background thread. This is because
         // it uses the thread name of the thread the log function is called in, not the thread used to do the output.
-        systemLogDestination.logQueue = DispatchQueue.global(attributes: .qosBackground)
+        systemLogDestination.logQueue = DispatchQueue.global(qos: .background)
         log.addLogDestination(systemLogDestination)
 
         let linesToLog = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"]
