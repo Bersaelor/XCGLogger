@@ -10,7 +10,7 @@
 import UIKit
 import XCGLogger
 
-let appDelegate = UIApplication.shared().delegate as! AppDelegate
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let log: XCGLogger = {
     // Setup XCGLogger
     let log = XCGLogger.defaultInstance()
@@ -20,7 +20,7 @@ let log: XCGLogger = {
         .debug: .darkGrey,
         .info: .darkGreen,
         .warning: .orange,
-        .error: XCGLogger.XcodeColor(fg: UIColor.red(), bg: UIColor.white()), // Optionally use a UIColor
+        .error: XCGLogger.XcodeColor(fg: UIColor.red, bg: UIColor.white), // Optionally use a UIColor
         .severe: XCGLogger.XcodeColor(fg: (255, 255, 255), bg: (255, 0, 0)) // Optionally use RGB values directly
     ]
 
@@ -43,17 +43,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     let documentsDirectory: URL = {
-        let urls = FileManager.default.urlsForDirectory(.documentDirectory, inDomains: .userDomainMask)
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[urls.endIndex - 1]
     }()
 
     let cacheDirectory: URL = {
-        let urls = FileManager.default.urlsForDirectory(.cachesDirectory, inDomains: .userDomainMask)
+        let urls = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
         return urls[urls.endIndex - 1] 
     }()
 
     // MARK: - Life cycle methods
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }

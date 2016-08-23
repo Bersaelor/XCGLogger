@@ -19,7 +19,7 @@ let log: XCGLogger = {
         .debug: .darkGrey,
         .info: .darkGreen,
         .warning: .orange,
-        .error: XCGLogger.XcodeColor(fg: UIColor.red(), bg: UIColor.white()), // Optionally use a UIColor
+        .error: XCGLogger.XcodeColor(fg: UIColor.red, bg: UIColor.white), // Optionally use a UIColor
         .severe: XCGLogger.XcodeColor(fg: (255, 255, 255), bg: (255, 0, 0)) // Optionally use RGB values directly
     ]
 
@@ -36,7 +36,7 @@ let log: XCGLogger = {
 
 class InterfaceController: WKInterfaceController {
 
-    override func awake(withContext context: AnyObject?) {
+    override func awake(withContext context: Any?) {
         // Display initial app info
         _ = log
 
