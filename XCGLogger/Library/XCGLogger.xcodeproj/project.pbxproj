@@ -352,6 +352,10 @@
 					};
 					554DF41619D76FE7005708BE = {
 						CreatedOnToolsVersion = 6.1;
+						LastSwiftMigration = 0800;
+					};
+					55BB1EF51B79DC7500709779 = {
+						LastSwiftMigration = 0800;
 					};
 					55E3EE4419D76F280068C3A7 = {
 						CreatedOnToolsVersion = 6.1;
@@ -564,6 +568,7 @@
 				PRODUCT_NAME = XCGLogger;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -586,6 +591,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -603,6 +609,7 @@
 				PRODUCT_MODULE_NAME = XCGLoggerTests_OSX;
 				PRODUCT_NAME = "XCGLoggerTests (OS X)";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -618,6 +625,7 @@
 				PRODUCT_NAME = "XCGLoggerTests (OS X)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
