@@ -14,7 +14,7 @@ extension URL {
 
     /// Get extended attribute.
     func extendedAttribute(forName name: String) throws -> Data? {
-        let data: Data? = try self.withUnsafeFileSystemRepresentation { (fileSystemPath: (UnsafePointer<Int8>?)) -> Data? in
+        let data: Data? = try self.withUnsafeFileSystemRepresentation { fileSystemPath in
             // Determine attribute size
             let length = getxattr(fileSystemPath, name, nil, 0, 0, 0)
             guard length >= 0 else { return nil }
@@ -53,7 +53,7 @@ extension URL {
 
     /// Get list of all extended attributes.
     func listExtendedAttributes() throws -> [String] {
-        let list = try self.withUnsafeFileSystemRepresentation { (fileSystemPath: (UnsafePointer<Int8>?)) -> [String] in
+        let list: [String] = try self.withUnsafeFileSystemRepresentation { fileSystemPath in
             let length = listxattr(fileSystemPath, nil, 0, 0)
             guard length >= 0 else { throw URL.posixError(errno) }
 
